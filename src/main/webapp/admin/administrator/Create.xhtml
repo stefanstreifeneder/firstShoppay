@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+    Copyright (c) 2014 Oracle and/or its affiliates. All rights reserved.
+    You may not modify, use, reproduce, or distribute this software except in
+    compliance with  the terms of the License at:
+    https://github.com/javaee/tutorial-examples/LICENSE.txt
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:util="http://java.sun.com/jsf/composite/util">
+
+    <ui:composition template="/templateTest.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAdministratorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form>
+                <h:panelGrid columns="2">
+                    
+                    <h:outputLabel 
+                        value="#{bundle.CreateAdministratorLabel_firstname}" 
+                         />
+                    
+                    <h:inputText 
+                        id="firstnameX" 
+                        value="#{administratorController.selected.firstname}" 
+                        title="#{bundle.CreateAdministratorTitle_firstname}" 
+                        required="true" 
+                        requiredMessage="#{bundle.CreateAdministratorRequiredMessage_firstname}"/>
+                    
+                    <h:outputLabel 
+                        value="#{bundle.CreateAdministratorLabel_lastname}" 
+                         />
+                    
+                    <h:inputText 
+                        id="lastnameX" 
+                        value="#{administratorController.selected.lastname}" 
+                        title="#{bundle.CreateAdministratorTitle_lastname}" 
+                        required="true" 
+                        requiredMessage="#{bundle.CreateAdministratorRequiredMessage_lastname}"/>
+                    
+                    <h:outputLabel 
+                        value="#{bundle.CreateAdministratorLabel_email}" 
+                         />
+                    
+                    <h:inputText 
+                        id="emailX" 
+                        value="#{administratorController.selected.email}" 
+                        title="#{bundle.CreateAdministratorTitle_email}" 
+                        required="true" 
+                        requiredMessage="#{bundle.CreateAdministratorRequiredMessage_email}"/>
+                    
+                                        
+                     <h:outputLabel 
+                        value="#{bundle.CreateAdministratorLabel_password}" 
+                         />
+                    
+                    <h:inputSecret 
+                        id="passwordX" 
+                        value="#{administratorController.selected.password}" 
+                        title="#{bundle.CreateAdministratorTitle_password}" 
+                        required="true" 
+                        requiredMessage="#{bundle.CreateAdministratorRequiredMessage_password}"/>
+                    
+                    
+                    <h:outputLabel 
+                        value="City" 
+                         />
+                    
+                    <h:inputText id="cityX" 
+                                 value="#{administratorController.currentPersonDetails.city}" 
+                                 title="City" 
+                                 required="true" 
+                                 requiredMessage="Enter your City"/>
+                    
+                    <h:outputLabel 
+                        value="Country" 
+                         />
+                    
+                    <h:inputText id="countryX" 
+                                 value="#{administratorController.currentPersonDetails.country}" 
+                                 title="Country" 
+                                 required="true" 
+                                 requiredMessage="Enter your country"/>
+                    
+                    <h:outputLabel 
+                        value="Postalcode" 
+                         />
+                    
+                    <h:inputText id="postalcodeX" 
+                                 value="#{administratorController.currentPersonDetails.postalcode}" 
+                                 title="Postalcode" 
+                                 required="true" 
+                                 requiredMessage="Enter your postalcode"/>
+                    
+                    <h:outputLabel 
+                        value="Street" 
+                         />
+                    
+                    <h:inputText id="streetX" 
+                                 value="#{administratorController.currentPersonDetails.street}" 
+                                 title="Street" 
+                                 required="true" 
+                                 requiredMessage="Enter your street"/>
+                    
+                    <h:outputLabel 
+                        value="Telephone" 
+                         />
+                    
+                    <h:inputText id="telephoneX" 
+                                 value="#{administratorController.currentPersonDetails.telephone}" 
+                                 title="Telephone" 
+                                 required="true" 
+                                 requiredMessage="Enter your telephone"/>
+                    
+                    
+                    <h:outputLabel value="Birthday" />
+                
+               
+                
+                    <h:inputText id="birthdayX" 
+                                 value="#{administratorController.currentPersonDetails.birthday}" 
+                             required="true" 
+                             requiredMessage="Please Enter Your Birthdate (dd.MM.yyyy)">
+                        <f:convertDateTime pattern="dd.MM.yyyy"/>                
+                    </h:inputText>
+                   
+                </h:panelGrid>                                 
+                
+                <util:commandButtons 
+                    bundleEntity="CreateAdministrator" 
+                    controller="#{administratorController}" 
+                    type="create" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

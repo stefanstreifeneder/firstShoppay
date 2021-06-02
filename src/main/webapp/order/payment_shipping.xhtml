@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+    Copyright (c) 2014 Oracle and/or its affiliates. All rights reserved.
+    You may not modify, use, reproduce, or distribute this software except in
+    compliance with  the terms of the License at:
+    https://github.com/javaee/tutorial-examples/LICENSE.txt
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:util="http://java.sun.com/jsf/composite/util">
+
+    <ui:composition template="/templateTest.xhtml">
+        
+        
+        <ui:define name="title">
+            <h:outputText value="Payment_Shipping"></h:outputText>
+        </ui:define>
+        
+        
+        <ui:define name="left">
+            <h:outputText value="Your personell data:"></h:outputText>
+        </ui:define>
+        
+        
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel 
+                        value="#{bundle.CreateCustomerOrderLabel_customer}"/>
+                    
+                    <h:outputLabel 
+                        value="#{shoppingCart.userEmail}" />   
+                    
+                    <h:outputLabel 
+                        value="Firstname"/>
+                    
+                    <h:outputLabel 
+                        value="#{shoppingCart.user.firstname}" />   
+                    
+                    <h:outputLabel 
+                        value="Lastname"/>
+                    
+                    <h:outputLabel 
+                        value="#{shoppingCart.user.lastname}" />  
+                    
+                    
+                    
+                    <h:outputLabel 
+                        value="Street"/>
+                    
+                    <h:outputLabel 
+                        value="#{shoppingCart.personDetails.street}" /> 
+                    
+                    <h:outputLabel 
+                        value="City"/>
+                    
+                    <h:outputLabel 
+                        value="#{shoppingCart.personDetails.city}" />  
+                    
+                    
+                    
+                    <h:outputLabel 
+                        value="Postalcode"/>
+                    
+                    <h:outputLabel 
+                        value="#{shoppingCart.personDetails.postalcode}" /> 
+                    
+                    <h:outputLabel 
+                        value="Telefon"/>
+                    
+                    <h:outputLabel 
+                        value="#{shoppingCart.personDetails.telephone}" /> 
+                    
+                    
+                    
+                    
+                    <h:outputLabel 
+                        value="#{bundle.CreateCustomerOrderLabel_amount}"/>
+                    
+                    <h:outputLabel 
+                        value="#{shoppingCart.total}" />   
+                    
+                                       
+                    <h:outputLabel 
+                        value="#{bundle.CreateCustomerOrderLabel_dateCreated}"/>
+                    
+                    <h:outputLabel 
+                        value="#{shoppingCart.date}" />                      
+                    
+                    
+                    
+                    <h:outputLabel 
+                        value="#{bundle.CreateCustomerOrderLabel_orderStatus}" />
+                    
+                    
+                    
+                   <h:outputLabel 
+                        value="PENDING_PAYMENT" />
+                    
+                </h:panelGrid>
+                
+                                
+                <h:outputLabel 
+                    value="____________________________________________" />
+                <br/>
+                
+                <h:panelGroup>
+                    
+                    <h:commandLink immediate="true">
+                         
+                         <h:graphicImage url="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png"
+                                        alt="#{image.name} - NOT AVAILABLE"/> 
+                     </h:commandLink>
+                    
+                </h:panelGroup>
+                
+                <br/>
+                
+                
+                
+                <h:outputLabel 
+                    value="____________________________________________" />
+
+                <br/>
+                
+                
+                <h:panelGrid columns="2">
+                    <h:outputLabel 
+                        value="Card Number"/>
+                    
+                    <h:inputText 
+                        id="number" 
+                        value="#{customerOrderController.selected.amount}" 
+                        title="Card Number" 
+                        required="true" 
+                        requiredMessage="Card Numer is required"/>
+                    
+                      
+                    
+                    <h:outputLabel 
+                        value="Cardholder name"/>
+                    
+                    <h:inputText 
+                        id="Cardholder" 
+                        value="#{customerOrderController.selected.amount}" 
+                        title="Cardholder name" 
+                        required="true" 
+                        requiredMessage="Cardholder name is required"/>  
+                    
+                    <h:outputLabel 
+                        value="MM/YY"/>
+                    
+                    <h:inputText 
+                        id="MM" 
+                        value="#{customerOrderController.selected.amount}" 
+                        title="MM/YY" 
+                        required="true" 
+                        requiredMessage="MM/YY is required"/>  
+                    
+                    <h:outputLabel 
+                        value="Card Verification Value"/>
+                    
+                    <h:inputText 
+                        id="Verification" 
+                        value="#{customerOrderController.selected.amount}" 
+                        title="Card Verification Value" 
+                        required="true" 
+                        requiredMessage="Card Verification Value is required"/>  
+                    
+                    
+                </h:panelGrid>    
+                    
+                    
+                <h:outputLabel 
+                        value="____________________________________________" />
+                    
+                    <br/>
+                
+                <br />
+                <h:commandLink 
+                    action="#{customerOrderController.create}" 
+                    value="Confirm Payment" />
+                
+                <br />
+                <br />
+                <h:commandLink 
+                    action="#{customerOrderController.prepareList}" 
+                    value="#{bundle.CreateCustomerOrderShowAllLink}" 
+                    immediate="true"/>
+                
+                <br />
+                <br />
+                <h:commandLink 
+                    value="#{bundle.CreateCustomerOrderIndexLink}" 
+                    action="/index" 
+                    immediate="true" />
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

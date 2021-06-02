@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+    Copyright (c) 2014 Oracle and/or its affiliates. All rights reserved.
+    You may not modify, use, reproduce, or distribute this software except in
+    compliance with  the terms of the License at:
+    https://github.com/javaee/tutorial-examples/LICENSE.txt
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:util="http://java.sun.com/jsf/composite/util">
+
+    <ui:composition template="/templateTest.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCustomerTitle} #{customerController.selected.firstname}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCustomerLabel_id}"/>
+                    
+                    <h:outputText value="#{customerController.selected.idPerson}" 
+                                  title="#{bundle.ViewCustomerTitle_id}"/>
+                    
+                    <h:outputText value="#{bundle.ViewCustomerLabel_firstname}"/>
+                    
+                    <h:outputText 
+                        value="#{customerController.selected.firstname}" 
+                        title="#{bundle.ViewCustomerTitle_firstname}"/>
+                    
+                    <h:outputText 
+                        value="#{bundle.ViewCustomerLabel_lastname}"/>
+                    
+                    <h:outputText 
+                        value="#{customerController.selected.lastname}" 
+                        title="#{bundle.ViewCustomerTitle_lastname}"/>
+                    
+                    <h:outputText 
+                        value="#{bundle.ViewCustomerLabel_email}"/>
+                    
+                    <h:outputText 
+                        value="#{customerController.selected.email}" 
+                        title="#{bundle.ViewCustomerTitle_email}"/>
+                    
+                    <h:outputText 
+                        value="Password:" 
+                        title="Password"/>
+                    
+                    <h:outputText 
+                        value="#{customerController.selected.password}" 
+                        title="bla"/>
+                    
+                    <h:outputText 
+                        value="City:"
+                        title="Enter City"/>
+                    
+                    <h:outputText 
+                        value="#{customerController.currentPersonDetails.city}"/>
+                    
+                    <h:outputText
+                        value="Country:"/>
+                    
+                    <h:outputText 
+                        value="#{customerController.currentPersonDetails.country}" 
+                        title="Country" />
+                    
+                    <h:outputText 
+                        value="Postalcode:"/>
+                    
+                    <h:outputText
+                        value="#{customerController.currentPersonDetails.postalcode}" 
+                        title="Postalcode" />
+                    
+                    <h:outputText
+                        value="Street:"/>
+                    
+                    <h:outputText
+                        value="#{customerController.currentPersonDetails.street}" 
+                        title="Street" />
+                    
+                    <h:outputText
+                        value="Telephone:"/>
+                    
+                    <h:outputText 
+                        value="#{customerController.currentPersonDetails.telephone}" 
+                        title="Telephone" />
+                    
+                    
+                    <h:outputText
+                        value="Birthday:" />
+                    
+                    <h:outputText
+                        title="Birtday(dd.mm.yyyy" 
+                        value="#{customerController.currentPersonDetails.birthday}" />
+                    
+                    
+                </h:panelGrid>
+                
+                <util:commandButtons bundleEntity="ViewCustomer" 
+                                     controller="#{customerController}" type="view" />
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
